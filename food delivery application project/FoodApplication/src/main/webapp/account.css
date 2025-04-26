@@ -1,0 +1,236 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* height: 10%; */
+}
+
+body {
+    /* background: url("food-4k-1pf6px6ryqfjtnyr.jpg"); */
+    background: url("imagesResturent/resturentList/food1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.logo{
+    width: 60px;
+    height: 50px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;  
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 60px 20px 30px 20px;
+    height: 640px;
+    width: 350px;
+    background-color: rgba(255, 220, 220, 0.4);
+    border-radius: 30px;
+    /* -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px); */
+    overflow: hidden;
+    margin-top: -120px;
+    
+}
+
+.box-login {
+    position: absolute;
+    width: 85%;
+    left: 27px;
+    transition: .5s ease-in-out;
+}
+
+.header {
+    text-align: center;
+    margin: 30px 0;
+
+}
+
+.top-header h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+
+}
+
+.input {
+    width: 100%;
+
+}
+
+.userInput {
+    margin: 12px 0;
+    position: relative;
+
+}
+
+.input-box {
+    background: rgba(255, 220, 220, 0.4);
+    outline: none;
+    height: 50px;
+    width: 100%;
+    color: #040403;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 7px 45px 0 20px;
+}
+.userInput label{
+    position: absolute;
+    font-size: 16px;
+    top:15px;
+    left: 20px;
+    transition:.3s ease-in-out;
+}
+.input-box:focus ~ label,.input-box:valid ~ label{
+    color: black;
+    font-size: 10px;
+    top: 2px;
+    font-weight: bold;
+}
+.remember-me{
+    font-size: 15px;
+    display: flex;
+    margin:12px 0 30px 0;
+    color:black;
+}
+#checkTic{
+    width: 15px;
+    margin: 6px;
+    
+}
+.message {
+    color: green;
+    background-color: #e7f9e7;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid green;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin: 90px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+    z-index:1;
+    font-weight: bold;
+        position: relative;  
+    z-index: 9999; 
+}
+
+
+.input-submit{
+    width: 100%;
+    height: 51px;
+    font-weight: bold;
+    border: none;
+    font-size: 16px;
+    border:none;
+    border-radius: 10px;
+    background-color:orange;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 5px 22px  rgba(255, 220, 220, 0.4);
+
+}
+.input-submit:hover{
+    background-color:red;
+}
+
+.forgot-sms{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 42px;
+    font-weight: 500;
+}
+.forgot-sms a{
+    color:black;
+    text-decoration: none;
+}
+.forgot-sms a:hover{
+    color: red;
+}
+.eye{
+    position: absolute;
+    top: 25%;
+    right: 25%;
+
+}
+.eye-icon{
+    position:  absolute;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    position: absolute;
+    right: -50px;
+    top:3px;
+    
+    color: rgba(255, 220, 220, 0.4);
+}
+
+.box-login,.register-box{
+    position: absolute;
+    width:85%;
+    left:-350px;
+    transition: .5s ease-in-out;
+
+}
+.box-login {
+    left: 27px;
+}
+
+.register-box {
+    left: 350px;  
+}
+.switch{
+    display: flex;
+    position: absolute;
+    bottom: 50px;
+    left:25px;
+    width:85%;
+    height: 50px;
+    background:rgba(255, 220, 220, 0.4);
+    backdrop-filter:blur(10px);
+    border-radius:10px;
+    box-shadow:  0px 2px 10px black;
+    overflow: hidden;
+
+}
+.switch a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color:black;
+    text-decoration: none;
+    width: 50%;
+    border-radius:10px;
+    z-index: 10;
+
+}
+#btn{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width:145px;
+    background: rgba(255, 220, 220, 0.4);
+    border-radius: 4px;
+    box-shadow: 2px 0px 12px black; 
+    height: 50px;
+    color: white;
+    transition: .5s ease-in-out;
+}

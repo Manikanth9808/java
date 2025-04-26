@@ -1,0 +1,446 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap');
+
+
+#search{
+font-size: 25px;
+color: white;
+position: absolute;
+top: -7.5vh;
+right: -10vh;
+}
+
+#search:hover{
+  color: #f39c12;
+  padding-bottom: 14px;
+  transform: translateY(-6px);
+  text-shadow: 0 0 10px rgba(243, 156, 18, 0.8), 0 0 20px rgba(243, 156, 18, 0.5);
+}
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+}
+
+.search-overlay.active {
+  display: flex;
+}
+
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+#search-close{
+  color: gray;
+  font-size: 50px;
+
+}
+
+.search-bar {
+  width: 60%;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f1f6;
+    color: #333;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  #logo-name{
+  font-family: 'Playfair Display', serif;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+ 
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #2980b9, #8e44ad);
+    padding: 10px 0px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    
+}
+
+.logo a {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 20px;
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links a {
+    color: #fff;
+    font-size: 18px; /* Slightly smaller font size for a balanced design */
+    font-weight: 400;
+    padding: 12px 0;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease, padding 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links i {
+    margin-right: 8px; 
+    font-size: 18px; 
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+    padding-bottom: 14px;
+    transform: translateY(-6px);
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.8), 0 0 20px rgba(243, 156, 18, 0.5);
+}
+
+.nav-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: #f39c12;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover:before {
+    width: 100%;
+}
+
+.nav-links li:hover {
+    transform: translateY(-8px);
+    opacity: 0.8;
+}
+
+.nav-links a:hover i {
+    transform: rotate(20deg) scale(1.2);
+}
+
+/* Cart Icon Style */
+.nav-links li a {
+    font-size: 18px; /* Same size for uniformity */
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-links li a i {
+    margin-right: 5px; /* Adjusted for cart icon spacing */
+}
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 35px;
+    height: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999; /* Ensure the hamburger is above other elements */
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger:hover .line {
+    background-color: #f39c12; /* Change color on hover */
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #2980b9; /* Vivid gradient */
+    color: white;
+    width: 250px;
+    height: 100vh;
+    padding: 40px 20px;
+    z-index: 1000;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.4); 
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-out;
+    border-radius: 10px 0 0 10px; /* Rounded corners */
+}
+
+.mobile-menu.active {
+    display: block;
+    transform: translateX(0); /* Slide in */
+}
+
+/* Mobile menu links */
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.mobile-menu li {
+    margin: 20px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.mobile-menu a {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.mobile-menu i {
+    margin-right: 15px;
+}
+
+/* Hover effect on menu links */
+.mobile-menu a:hover {
+    color: #333;
+    background-color: #fff; /* Light background on hover */
+    transform: translateX(15px); /* Slide right */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Show hamburger icon and mobile menu for small screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu.active {
+        display: block;
+        transform: translateX(0);
+    }
+
+    .hamburger.active .line:nth-child(1) {
+        transform: rotate(90deg);
+        transform-origin: 5px 5px;
+    }
+
+    .hamburger.active .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .line:nth-child(3) {
+        transform: rotate(-35deg);
+        transform-origin: 5px 22px;
+    }
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 96%;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+  .restaurant-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .restaurant-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 100px 100px rgba(0, 0, 0, 0.2);
+  }
+  .restaurant-name:hover {
+    color: #f39c12;
+    text-shadow: 0 2px 10px rgba(243, 156, 18, 0.6);
+ 
+}
+  
+  .restaurant-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 5px solid #f39c12;
+  }
+  
+  .restaurant-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .restaurant-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-details span {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .restaurant-address {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .cuisine-type,
+.opening-hours {
+  font-size: 14px;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+
+.details {
+    background-color: #ECF0F1;
+    border: 2px solid none;
+    border-radius: 15px;
+    padding: 80px;
+    position: absolute;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    width: 240vh;
+    flex-wrap: wrap;
+    line-height: 2.5;
+}
+
+.details .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333;
+}
+
+.details .copyright a {
+    text-decoration: none;
+    color: #ff5733;
+}
+
+.details .copyright i {
+    color: red;
+}
+
+.details a {
+    text-decoration: none;
+    color: black;
+}
+
+.details h1 {
+    color: #9bad41;
+    font-size: 25px;
+}
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
